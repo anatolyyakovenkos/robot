@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made By Humans</title>
+    <link rel="icon" type="image/x-icon" href="themainlogo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FFF9F5;
+            color: #2C1810;
+            overflow-x: hidden;
+        }
+        
+        .hero-image {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: #FFF9F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #E8D5C4;
+        }
+        
+        .hero-overlay {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2C1810;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #6B5847;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-arrow {
+            width: 30px;
+            height: 30px;
+            border-right: 2px solid #2C1810;
+            border-bottom: 2px solid #2C1810;
+            transform: rotate(45deg);
+        }
+        
+        .x-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #000000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .x-button:hover {
+            opacity: 0.8;
+        }
+        
+        .fees-button {
+            position: fixed;
+            top: 30px;
+            right: 110px;
+            padding: 15px 30px;
+            background: #000000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .fees-button:hover {
+            opacity: 0.8;
+        }
+        
+        .whitepaper-button {
+            position: fixed;
+            top: 30px;
+            right: 220px;
+            padding: 15px 30px;
+            background: #000000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .whitepaper-button:hover {
+            opacity: 0.8;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: #FFFEF7;
+            border: 2px solid #2C1810;
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #2C1810;
+            font-weight: bold;
+            line-height: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            opacity: 0.6;
+        }
+        
+        .modal-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.8rem;
+            color: #2C1810;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .modal-section {
+            margin-bottom: 30px;
+        }
+        
+        .modal-section h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            color: #2C1810;
+            margin-bottom: 20px;
+        }
+        
+        .modal-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2C1810;
+            margin-bottom: 15px;
+        }
+        
+        .fee-breakdown {
+            background: white;
+            border: 2px solid #2C1810;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.1rem;
+        }
+        
+        .fee-item:last-child {
+            border-bottom: none;
+        }
+        
+        .fee-label {
+            font-weight: 600;
+            color: #2C1810;
+        }
+        
+        .fee-percentage {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.3rem;
+            color: #2C1810;
+            font-weight: 700;
+        }
+        
+        .content-section {
+            background: #FFF9F5;
+            padding: 100px 50px;
+            text-align: center;
+            border-bottom: 1px solid #E8D5C4;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: #2C1810;
+        }
+        
+        .manifesto-box {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 50px;
+            background: white;
+            border: 1px solid #E8D5C4;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .manifesto-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2C1810;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .manifesto-text strong {
+            color: #6B5847;
+            font-weight: 600;
+        }
+        
+        .country-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .country-card {
+            background: white;
+            border: 1px solid #E8D5C4;
+            border-radius: 8px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .country-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        
+        .country-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2C1810;
+            margin-bottom: 30px;
+        }
+        
+        .country-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .image-box {
+            width: 100%;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .country-info {
+            text-align: left;
+        }
+        
+        .info-list {
+            list-style: none;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            color: #2C1810;
+        }
+        
+        .info-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .info-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FF6B6B;
+            font-weight: bold;
+            font-size: 1.8rem;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        .gallery-section {
+            background: linear-gradient(135deg, #FFF5E6 0%, #FFE5CC 100%);
+            padding: 100px 50px;
+            border-bottom: 8px dashed #2C1810;
+        }
+        
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+        
+        .gallery-item {
+            background: white;
+            border: 4px solid #2C1810;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            transform: rotate(0deg);
+        }
+        
+        .gallery-item:nth-child(3n) {
+            transform: rotate(1deg);
+        }
+        
+        .gallery-item:nth-child(3n+1) {
+            transform: rotate(-1deg);
+        }
+        
+        .gallery-item:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 8px 8px 0px #FFD93D;
+            z-index: 10;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #FFD93D 0%, #FFEAA7 100%);
+            border: 3px dashed #2C1810;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        
+        .gallery-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: #2C1810;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .footer-section {
+            background: #2C1810;
+            color: #FFD93D;
+            padding: 60px 50px;
+            text-align: center;
+            border-top: 8px dashed #FFD93D;
+        }
+        
+        .footer-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        .footer-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(1deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.5; transform: translateX(-50%) scale(1.2); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .manifesto-text {
+                font-size: 1.2rem;
+            }
+            
+            .country-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 25px;
+            }
+            
+            .content-section,
+            .gallery-section {
+                padding: 60px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://x.com/AnIndividualXyz" target="_blank" class="x-button">𝕏</a>
+    <button class="whitepaper-button" onclick="openWhitepaperModal()">Whitepaper</button>
+    <button class="fees-button" onclick="openFeesModal()">Fees</button>
+
+    <!-- Fees Modal -->
+    <div class="modal" id="feesModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeFeesModal()">&times;</span>
+            <h2 class="modal-title">How Fees Work</h2>
+            
+            <div class="modal-section">
+                <p style="font-size: 1.2rem; font-weight: 600; color: #2C1810; text-align: center; margin-bottom: 25px;">
+                    Every transaction helps fund real human art around the world
+                </p>
+                
+                <div class="fee-breakdown">
+                    <div class="fee-item">
+                        <span class="fee-label">Pictures of An Individual</span>
+                        <span class="fee-percentage">50%</span>
+                    </div>
+                    <div class="fee-item">
+                        <span class="fee-label">Buybacks</span>
+                        <span class="fee-percentage">25%</span>
+                    </div>
+                    <div class="fee-item">
+                        <span class="fee-label">Dev Team</span>
+                        <span class="fee-percentage">25%</span>
+                    </div>
+                </div>
+                
+                <p>
+                    <strong>50% goes directly to paying people around the world</strong> to draw An Individual. We pay artists in struggling economies, street artists, traditional painters, and anyone willing to put pencil to paper and create something real with their hands.
+                </p>
+                
+                <p>
+                    <strong>25% goes to buybacks</strong> to support the token value and reward holders who believe in the mission of human creativity over AI slop.
+                </p>
+                
+                <p>
+                    <strong>25% goes to the dev team</strong> to keep the project running, coordinate artists worldwide, and continue the fight against AI-generated garbage.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Whitepaper Modal -->
+    <div class="modal" id="whitepaperModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeWhitepaperModal()">&times;</span>
+            <h2 class="modal-title">Fighting AI Slop</h2>
+            
+            <div class="modal-section">
+                <p>
+                    <strong>We hate AI slop.</strong> We're drowning in it. Soulless generated images, copy-paste "art," algorithmic garbage flooding every feed and timeline. It's cheap, it's easy, and it's killing creativity.
+                </p>
+                
+                <p>
+                    <strong>Made By Humans is our answer.</strong> We celebrate art that's intentionally simple, authentic, and real. Art that doesn't need AI. Art that doesn't need fancy prompts or rendering farms. Art that just needs a human with a marker, chalk, or crayon.
+                </p>
+                
+                <p>
+                    <strong>This is a protest.</strong> Every piece of human-made art is a middle finger to AI slop. Every artist paid is proof that humans still create value. Every imperfect line is evidence that soul matters more than polish.
+                </p>
+                
+                <p>
+                    <strong>We're not fighting AI by complaining.</strong> We're fighting AI by DOING something. By putting money in the hands of real artists. By creating a global movement of human-made art. By proving that people care about authenticity.
+                </p>
+                
+                <p style="font-size: 1.2rem; color: #2C1810; font-weight: 600; margin-top: 25px; text-align: center;">
+                    Join the resistance. Create art. Pay artists. Reject AI slop.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-overlay">
+            <h1 class="hero-title">An Individual</h1>
+            <p class="hero-subtitle">A protest against ai slop that everyone can take part in</p>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">What is an individual?</h2>
+        
+        <div class="manifesto-box">
+            <p class="manifesto-text">
+                <strong>AI is taking over the world.</strong> Every day, machines get smarter, faster, more capable. They can write, create, and even think. But what about us? What about the messy, beautiful, imperfect human touch?
+            </p>
+            <p class="manifesto-text">
+                We asked ourselves: <strong>What if we created a universal movement to celebrate humanity?</strong> Something so simple, so pure, that it could only come from human hands. Something that says "we were here, we created this, we are real."
+            </p>
+            <p class="manifesto-text">
+                That's when <strong>Made By Humans</strong> was born. Not by algorithm. Not by neural network. But by human hands holding pencils, brushes, and chalk across the globe.
+            </p>
+        </div>
+        
+        <div class="manifesto-box">
+            <p class="manifesto-text">
+                <strong>Made By Humans is a sign of love.</strong> It's humanity distilled into its simplest form—real people creating real art. Made By Humans transcends language, culture, and borders. It's universal, yet deeply personal with every stroke.
+            </p>
+            <p class="manifesto-text">
+                We paid real people in different countries to create art in their area. Not because it's perfect, but because <strong>it's human</strong>. Each piece is unique. Each carries the soul of the artist who made it. Each is proof that in an age of artificial intelligence, the human spirit still creates, still connects, still matters.
+            </p>
+            <p class="manifesto-text">
+                Every crooked line, every wobbly circle, every smudge of chalk or streak of paint—these aren't mistakes. <strong>They're proof of life.</strong> They're proof that humans, with all our imperfections, are still here, still creating, still leaving our mark on this world.
+            </p>
+        </div>
+        
+        <div class="manifesto-box">
+            <p class="manifesto-text">
+                Made By Humans isn't fighting AI. It's reminding us what makes us human in the first place. <strong>The ability to create something with our hands, to connect with strangers across the world, to turn a simple idea into a global movement of love and creativity.</strong>
+            </p>
+            <p class="manifesto-text">
+                So when you see our work, remember: this wasn't generated. This wasn't optimized. This wasn't perfect. <strong>This was made by a human, for humans, with love.</strong>
+            </p>
+            <p class="manifesto-text" style="font-size: 1.6rem; color: #FF6B6B;">
+                <strong>Made By Humans is our reminder that humanity is still worth celebrating. 💙</strong>
+            </p>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="section-title">Made By Humans Around The World 🌍</h2>
+        
+        <div class="country-showcase">
+            <div class="country-card">
+                <h3 class="country-title">🇹🇷 Turkey</h3>
+                <div class="country-content">
+                    <div class="image-box">
+                        <img src="turkey1.png" alt="An Individual in Turkey">
+                    </div>
+                    <div class="country-info">
+                        <ul class="info-list">
+                            <li>Street artist in Istanbul</li>
+                            <li>Drew An Individual with chalk on ancient cobblestones</li>
+                            <li>Paid $100 USD to support local art</li>
+                            <li>An Individual now guards a historic alleyway</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <h3 class="country-title">🇾🇪 Yemen</h3>
+                <div class="country-content">
+                    <div class="country-info">
+                        <ul class="info-list">
+                            <li>Artist in Sana'a old city</li>
+                            <li>Painted An Individual on a weathered wall</li>
+                            <li>$50 USD for art in a struggling economy</li>
+                            <li>An Individual brings smiles to a community that needs them</li>
+                        </ul>
+                    </div>
+                    <div class="image-box">
+                        <img src="yemen1.png" alt="An Individual in Yemen">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <h3 class="country-title">🇷🇺 Russia</h3>
+                <div class="country-content">
+                    <div class="image-box">
+                        <img src="russia1.png" alt="An Individual in Russia">
+                    </div>
+                    <div class="country-info">
+                        <ul class="info-list">
+                            <li>Street artist in St. Petersburg</li>
+                            <li>An Individual sketched in a winter landscape</li>
+                            <li>Paid $80 USD to a creative soul</li>
+                            <li>Proving art knows no borders</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <h3 class="country-title">🇧🇷 Brazil</h3>
+                <div class="country-content">
+                    <div class="country-info">
+                        <ul class="info-list">
+                            <li>Favela artist in Rio de Janeiro</li>
+                            <li>An Individual spray-painted with vibrant colors</li>
+                            <li>$75 USD supporting grassroots creativity</li>
+                            <li>An Individual dances in the streets where samba was born</li>
+                        </ul>
+                    </div>
+                    <div class="image-box">
+                        <img src="brazil1.png" alt="An Individual in Brazil">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="gallery-section">
+        <h2 class="section-title">The Made By Humans Gallery ✨</h2>
+        <p style="font-family: 'Caveat', cursive; font-size: 2rem; text-align: center; margin-bottom: 60px; color: #FF6B6B;">
+            We pay you solana to spread human creativity!
+        </p>
+    </div>
+    
+    <div class="footer-section">
+        <h3 class="footer-title">Made By Humans Is Just The Beginning 💙</h3>
+        <p class="footer-text">
+            This project isn't about one thing. It's about us. It's about proving that in a world increasingly run by algorithms, 
+            the human touch still matters. Every artist we paid, every piece that was created, every imperfect line and wobble—
+            they all represent something AI can never replicate: genuine human connection and creativity.
+        </p>
+        <p class="footer-text" style="margin-top: 30px; font-family: 'Caveat', cursive; font-size: 1.8rem; color: #FFD93D;">
+            Join us in celebrating humanity. Create your own art. Share it. Keep the human spirit alive. ✨
+        </p>
+    </div>
+
+    <script>
+        function openFeesModal() {
+            document.getElementById('feesModal').classList.add('active');
+        }
+        
+        function closeFeesModal() {
+            document.getElementById('feesModal').classList.remove('active');
+        }
+        
+        function openWhitepaperModal() {
+            document.getElementById('whitepaperModal').classList.add('active');
+        }
+        
+        function closeWhitepaperModal() {
+            document.getElementById('whitepaperModal').classList.remove('active');
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const feesModal = document.getElementById('feesModal');
+            const whitepaperModal = document.getElementById('whitepaperModal');
+            if (event.target == feesModal) {
+                closeFeesModal();
+            }
+            if (event.target == whitepaperModal) {
+                closeWhitepaperModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
