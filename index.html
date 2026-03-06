@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Iran Meme</title>
+    <title>Made By Humans</title>
     <link rel="icon" type="image/x-icon" href="themainlogo.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
             color: #2C1810;
             overflow-x: hidden;
         }
-        
+
         .hero-image {
             width: 100vw;
             height: 100vh;
@@ -31,7 +31,7 @@
             justify-content: center;
             border-bottom: 1px solid #E8D5C4;
         }
-        
+
         .hero-overlay {
             position: relative;
             width: 100%;
@@ -43,7 +43,7 @@
             text-align: center;
             padding: 20px;
         }
-        
+
         .hero-title {
             font-size: 5rem;
             font-weight: 600;
@@ -51,14 +51,14 @@
             color: #2C1810;
             letter-spacing: -1px;
         }
-        
+
         .hero-subtitle {
             font-size: 1.8rem;
             color: #6B5847;
             font-weight: 400;
             margin-bottom: 40px;
         }
-        
+
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -66,7 +66,7 @@
             transform: translateX(-50%);
             animation: bounce 2s infinite;
         }
-        
+
         .scroll-arrow {
             width: 30px;
             height: 30px;
@@ -74,7 +74,7 @@
             border-bottom: 2px solid #2C1810;
             transform: rotate(45deg);
         }
-        
+
         .x-button {
             position: fixed;
             top: 30px;
@@ -96,11 +96,11 @@
             z-index: 1000;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
-        
+
         .x-button:hover {
             opacity: 0.8;
         }
-        
+
         .fees-button {
             position: fixed;
             top: 30px;
@@ -120,13 +120,13 @@
             border: none;
             z-index: 1000;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            font-family: 'Comic Neue', cursive;
+            font-family: 'Inter', sans-serif;
         }
-        
+
         .fees-button:hover {
             opacity: 0.8;
         }
-        
+
         .whitepaper-button {
             position: fixed;
             top: 30px;
@@ -146,13 +146,13 @@
             border: none;
             z-index: 1000;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            font-family: 'Comic Neue', cursive;
+            font-family: 'Inter', sans-serif;
         }
-        
+
         .whitepaper-button:hover {
             opacity: 0.8;
         }
-        
+
         .modal {
             display: none;
             position: fixed;
@@ -166,11 +166,11 @@
             justify-content: center;
             padding: 20px;
         }
-        
+
         .modal.active {
             display: flex;
         }
-        
+
         .modal-content {
             background: #FFFEF7;
             border: 2px solid #2C1810;
@@ -182,7 +182,7 @@
             position: relative;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        
+
         .modal-close {
             position: absolute;
             top: 20px;
@@ -194,37 +194,37 @@
             line-height: 1;
             transition: opacity 0.3s ease;
         }
-        
+
         .modal-close:hover {
             opacity: 0.6;
         }
-        
+
         .modal-title {
-            font-family: 'Caveat', cursive;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             color: #2C1810;
             margin-bottom: 30px;
             text-align: center;
+            font-weight: 700;
         }
-        
+
         .modal-section {
             margin-bottom: 30px;
         }
-        
+
         .modal-section h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #2C1810;
             margin-bottom: 20px;
+            font-weight: 700;
         }
-        
+
         .modal-section p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #2C1810;
             margin-bottom: 15px;
         }
-        
+
         .fee-breakdown {
             background: white;
             border: 2px solid #2C1810;
@@ -232,7 +232,7 @@
             padding: 25px;
             margin: 25px 0;
         }
-        
+
         .fee-item {
             display: flex;
             justify-content: space-between;
@@ -241,23 +241,22 @@
             border-bottom: 1px solid #e0e0e0;
             font-size: 1.1rem;
         }
-        
+
         .fee-item:last-child {
             border-bottom: none;
         }
-        
+
         .fee-label {
             font-weight: 600;
             color: #2C1810;
         }
-        
+
         .fee-percentage {
-            font-family: 'Comic Neue', cursive;
             font-size: 1.3rem;
             color: #2C1810;
             font-weight: 700;
         }
-        
+
         .content-section {
             background: #FFF9F5;
             padding: 100px 50px;
@@ -265,14 +264,14 @@
             border-bottom: 1px solid #E8D5C4;
             position: relative;
         }
-        
+
         .section-title {
             font-size: 3rem;
             font-weight: 600;
             margin-bottom: 50px;
             color: #2C1810;
         }
-        
+
         .manifesto-box {
             max-width: 900px;
             margin: 0 auto 60px;
@@ -283,7 +282,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             position: relative;
         }
-        
+
         .manifesto-text {
             font-size: 1.2rem;
             line-height: 1.8;
@@ -291,18 +290,18 @@
             margin-bottom: 30px;
             font-weight: 400;
         }
-        
+
         .manifesto-text strong {
             color: #6B5847;
             font-weight: 600;
         }
-        
+
         .country-showcase {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
+
         .country-card {
             background: white;
             border: 1px solid #E8D5C4;
@@ -312,25 +311,25 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
-        
+
         .country-card:hover {
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
-        
+
         .country-title {
             font-size: 2.5rem;
             font-weight: 600;
             color: #2C1810;
             margin-bottom: 30px;
         }
-        
+
         .country-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
         }
-        
+
         .image-box {
             width: 100%;
             height: 350px;
@@ -338,46 +337,43 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .image-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .country-info {
             text-align: left;
         }
-        
+
         .info-list {
             list-style: none;
             font-size: 1.3rem;
             line-height: 2.2;
             color: #2C1810;
         }
-        
+
         .info-list li {
             margin-bottom: 20px;
             position: relative;
             padding-left: 40px;
         }
-        
+
         .info-list li::before {
-            content: "→";
+            content: "\270D";
             position: absolute;
             left: 0;
-            color: #FF6B6B;
-            font-weight: bold;
-            font-size: 1.8rem;
-            animation: wiggle 2s ease-in-out infinite;
+            font-size: 1.5rem;
         }
-        
+
         .gallery-section {
             background: linear-gradient(135deg, #FFF5E6 0%, #FFE5CC 100%);
             padding: 100px 50px;
-            border-bottom: 8px dashed #2C1810;
+            border-bottom: 1px solid #E8D5C4;
         }
-        
+
         .gallery-grid {
             max-width: 1400px;
             margin: 0 auto;
@@ -386,84 +382,62 @@
             gap: 40px;
             padding: 20px;
         }
-        
+
         .gallery-item {
             background: white;
-            border: 4px solid #2C1810;
-            border-radius: 20px;
+            border: 1px solid #E8D5C4;
+            border-radius: 8px;
             padding: 15px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            transform: rotate(0deg);
         }
-        
-        .gallery-item:nth-child(3n) {
-            transform: rotate(1deg);
-        }
-        
-        .gallery-item:nth-child(3n+1) {
-            transform: rotate(-1deg);
-        }
-        
+
         .gallery-item:hover {
-            transform: rotate(0deg) scale(1.05);
-            box-shadow: 8px 8px 0px #FFD93D;
-            z-index: 10;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
         }
-        
+
         .gallery-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #FFD93D 0%, #FFEAA7 100%);
-            border: 3px dashed #2C1810;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #f0e6d8 0%, #e8d5c4 100%);
+            border: 1px solid #E8D5C4;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             margin-bottom: 15px;
         }
-        
+
         .gallery-caption {
-            font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #2C1810;
             text-align: center;
-            font-weight: 700;
+            font-weight: 600;
         }
-        
+
         .footer-section {
             background: #2C1810;
-            color: #FFD93D;
+            color: #FFF9F5;
             padding: 60px 50px;
             text-align: center;
-            border-top: 8px dashed #FFD93D;
         }
-        
+
         .footer-title {
-            font-family: 'Caveat', cursive;
-            font-size: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 20px;
-            animation: wiggle 3s ease-in-out infinite;
         }
-        
+
         .footer-text {
             font-size: 1.3rem;
             line-height: 1.8;
             max-width: 800px;
             margin: 0 auto;
+            color: #c4a88a;
         }
-        
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-2deg); }
-            50% { transform: rotate(2deg); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(1deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-        }
-        
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateX(-50%) translateY(0);
@@ -475,58 +449,48 @@
                 transform: translateX(-50%) translateY(-10px);
             }
         }
-        
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.5; transform: translateX(-50%) scale(1.2); }
-        }
-        
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3.5rem;
             }
-            
+
             .hero-subtitle {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
-            
+
             .section-title {
                 font-size: 2.5rem;
             }
-            
+
             .manifesto-text {
                 font-size: 1.2rem;
             }
-            
+
             .country-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 25px;
             }
-            
+
             .content-section,
             .gallery-section {
                 padding: 60px 30px;
+            }
+
+            .whitepaper-button,
+            .fees-button {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/MadeByHumansXyz" target="_blank" class="x-button">𝕏</a>
+    <a href="https://x.com/MadeByHumansXyz" target="_blank" class="x-button">&#120143;</a>
     <button class="whitepaper-button" onclick="openWhitepaperModal()">Whitepaper</button>
     <button class="fees-button" onclick="openFeesModal()">Fees</button>
 
@@ -538,12 +502,12 @@
 
             <div class="modal-section">
                 <p style="font-size: 1.2rem; font-weight: 600; color: #2C1810; text-align: center; margin-bottom: 25px;">
-                    Every transaction helps fund more stick man drawings across Iran
+                    Every transaction helps fund more human drawings across the world
                 </p>
 
                 <div class="fee-breakdown">
                     <div class="fee-item">
-                        <span class="fee-label">Stick Man Drawings in Iran</span>
+                        <span class="fee-label">Human Drawings Worldwide</span>
                         <span class="fee-percentage">50%</span>
                     </div>
                     <div class="fee-item">
@@ -557,15 +521,15 @@
                 </div>
 
                 <p>
-                    <strong>50% goes directly to paying people across Iran</strong> to draw the stick man. We pay locals in Tehran, Isfahan, Shiraz, Tabriz, and beyond to spread the message that the world sees them.
+                    <strong>50% goes directly to paying people across the world</strong> to draw a human by hand. We pay locals in cities across every continent to create something real, something tangible, something made by humans.
                 </p>
 
                 <p>
-                    <strong>25% goes to buybacks</strong> to support the token value and reward holders who believe in the mission of global solidarity.
+                    <strong>25% goes to buybacks</strong> to support the token value and reward holders who believe in the mission.
                 </p>
 
                 <p>
-                    <strong>25% goes to the dev team</strong> to keep the project running, coordinate artists across Iran, and continue spreading the message.
+                    <strong>25% goes to the dev team</strong> to keep the project running, coordinate artists worldwide, and continue spreading the movement.
                 </p>
             </div>
         </div>
@@ -575,27 +539,27 @@
     <div class="modal" id="whitepaperModal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeWhitepaperModal()">&times;</span>
-            <h2 class="modal-title">The Iran Meme Manifesto</h2>
+            <h2 class="modal-title">The Made By Humans Manifesto</h2>
 
             <div class="modal-section">
                 <p>
-                    <strong>The people of Iran deserve to be seen.</strong> For too long, headlines have reduced an entire nation to politics and conflict. But Iran is its people -- millions of real humans living real lives, and they deserve to know the world hasn't forgotten them.
+                    <strong>In a world increasingly run by AI, algorithms, and automation, we wanted to prove something simple:</strong> humans still matter. Humans still create. Humans still draw, sketch, and leave their mark on the world.
                 </p>
 
                 <p>
-                    <strong>The Iran Meme is our answer.</strong> A stick man, drawn by hand, in cities across Iran. It's intentionally simple. It doesn't need to be art. It just needs to carry the message: the world sees you.
+                    <strong>Made By Humans is our answer.</strong> We paid real people across the world to draw a human figure by hand. Not AI-generated. Not algorithmically optimized. Just a person, a pen, and a wall. That's it.
                 </p>
 
                 <p>
-                    <strong>This is solidarity in its purest form.</strong> Every stick man drawn is a statement. Every person we paid is proof that people across the world care. Every sketch on a wall is a reminder that Iran's people are not invisible.
+                    <strong>This is proof of humanity.</strong> Every drawing is unique because every human is unique. The wobbly lines, the imperfect proportions, the rough edges — that's what makes it real. That's what makes it human.
                 </p>
 
                 <p>
-                    <strong>We're not just talking about solidarity -- we're doing it.</strong> By putting money in the hands of real people in Iran. By creating a visible, tangible movement. By proving that a simple drawing can echo louder than any speech.
+                    <strong>We're not just talking about it — we're doing it.</strong> By putting money in the hands of real people in real cities. By creating a visible, global movement. By proving that in the age of AI, the most powerful thing you can do is make something by hand.
                 </p>
 
                 <p style="font-size: 1.2rem; color: #2C1810; font-weight: 600; margin-top: 25px; text-align: center;">
-                    Help us spread it further. The world sees Iran.
+                    Made By Humans. Not by machines.
                 </p>
             </div>
         </div>
@@ -603,145 +567,141 @@
 
     <div class="hero-image">
         <div class="hero-overlay">
-            <h1 class="hero-title">The Iran Meme</h1>
-            <p class="hero-subtitle">We paid people to draw a stick man across Iran. The world sees them. Help us spread it further.</p>
+            <h1 class="hero-title">Made By Humans</h1>
+            <p class="hero-subtitle">We paid people to draw a human across the world. Proof that humans still create.</p>
             <div class="scroll-indicator">
                 <div class="scroll-arrow"></div>
             </div>
         </div>
     </div>
-    
+
     <div class="content-section">
-        <h2 class="section-title">What is The Iran Meme?</h2>
+        <h2 class="section-title">What is Made By Humans?</h2>
 
         <div class="manifesto-box">
             <p class="manifesto-text">
-                <strong>The people of Iran are seen.</strong> In a world that often looks the other way, we wanted to do something simple but powerful. We paid real people across Iran to draw a stick man in their city. A small act with a big message.
+                <strong>In a world drowning in AI-generated content, we did something radical:</strong> we paid real people, in real cities, across the real world, to draw a human figure by hand. No prompts. No models. No algorithms. Just a human making something.
             </p>
             <p class="manifesto-text">
-                We asked ourselves: <strong>What if we could show the people of Iran that the world hasn't forgotten them?</strong> Something so simple that anyone could do it. Something that says "we see you, we stand with you, you are not alone."
+                We asked ourselves: <strong>What if we could create a global movement that proves humans still matter?</strong> Something so simple that anyone could participate. Something that says "this was made by a person, not a machine."
             </p>
             <p class="manifesto-text">
-                That's how <strong>The Iran Meme</strong> was born. A stick man drawn by hand, in cities across Iran, spreading a message of solidarity.
+                That's how <strong>Made By Humans</strong> was born. A hand-drawn human figure, created by real people, in cities across every continent.
             </p>
         </div>
 
         <div class="manifesto-box">
             <p class="manifesto-text">
-                <strong>The Iran Meme is a sign of solidarity.</strong> It's a simple stick figure, but it represents something much bigger. It says the world is watching. It says the people of Iran matter. It says their voices are heard even when they're silenced.
+                <strong>Made By Humans is proof of humanity.</strong> It's a simple drawing, but it represents something much bigger. It says that in the age of AI, human creativity still has value. That imperfection is beautiful. That a wobbly line drawn by a real hand is worth more than a million perfect renders.
             </p>
             <p class="manifesto-text">
-                We paid real people in cities across Iran to draw the stick man in their neighborhoods. Not because it's art, but because <strong>it's a message</strong>. Each drawing is unique. Each carries the courage of the person who made it. Each is proof that even the simplest gesture can echo across the world.
+                We paid real people in cities across the world to draw the human figure in their neighborhoods. Each drawing is unique. Each carries the personality of the person who made it. <strong>Each is proof that humans still create.</strong>
             </p>
             <p class="manifesto-text">
-                Every wobbly line, every rough sketch, every chalk drawing on a wall -- these aren't just doodles. <strong>They're acts of visibility.</strong> They're proof that the people of Iran are seen, heard, and supported by people around the world.
+                Every rough sketch, every chalk mark on a wall, every pen stroke on cardboard — these aren't just doodles. <strong>They're acts of humanity.</strong> They're proof that real people are still out there, making things with their hands.
             </p>
         </div>
 
         <div class="manifesto-box">
             <p class="manifesto-text">
-                The Iran Meme isn't about politics. It's about people. <strong>It's about showing that a simple drawing can carry a powerful message. That solidarity doesn't need to be complicated. That the world sees Iran.</strong>
+                Made By Humans isn't about being anti-technology. <strong>It's about reminding the world that behind every great creation, there's a human.</strong> Technology is a tool. Humans are the creators.
             </p>
             <p class="manifesto-text">
-                So when you see the stick man, remember: this was drawn by a real person, in a real city, with a real message. <strong>The world sees Iran. Help us spread it further.</strong>
-            </p>
-            <p class="manifesto-text" style="font-size: 1.6rem; color: #FF6B6B;">
-                <strong>The Iran Meme -- because the world sees you. 💙</strong>
+                So when you see the drawing, remember: this was made by a real person, in a real city, with real hands. <strong>Made By Humans. Not by machines.</strong>
             </p>
         </div>
     </div>
-    
+
     <div class="content-section">
-        <h2 class="section-title">The Stick Man Across Iran 🇮🇷</h2>
-        
+        <h2 class="section-title">Drawn Across The World</h2>
+
         <div class="country-showcase">
             <div class="country-card">
-                <h3 class="country-title">🇮🇷 Tehran</h3>
+                <h3 class="country-title">Istanbul, Turkey</h3>
                 <div class="country-content">
                     <div class="image-box">
-                        <img src="turkey1.png" alt="The stick man in Tehran">
+                        <img src="turkey1.png" alt="Human drawing in Istanbul">
                     </div>
                     <div class="country-info">
                         <ul class="info-list">
-                            <li>Local artist in central Tehran</li>
-                            <li>Drew the stick man with chalk near Azadi Square</li>
-                            <li>Paid $100 USD to spread the message</li>
-                            <li>The stick man now stands where millions walk every day</li>
+                            <li>Local artist in the Beyoglu district</li>
+                            <li>Drew a human figure with chalk on a side street</li>
+                            <li>Paid $100 USD to create something real</li>
+                            <li>Thousands of people walk past it every day</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            
+
             <div class="country-card">
-                <h3 class="country-title">🇮🇷 Isfahan</h3>
+                <h3 class="country-title">Sana'a, Yemen</h3>
                 <div class="country-content">
                     <div class="country-info">
                         <ul class="info-list">
-                            <li>Artist near Naqsh-e Jahan Square</li>
-                            <li>Painted the stick man on a weathered wall in the old city</li>
-                            <li>Paid $50 USD to carry the message forward</li>
-                            <li>The stick man brings smiles to a city known for its beauty</li>
+                            <li>Artist near the Old City walls</li>
+                            <li>Painted a human figure on weathered stone</li>
+                            <li>Paid $50 USD to leave a human mark</li>
+                            <li>A message of hope in a city that needs it</li>
                         </ul>
                     </div>
                     <div class="image-box">
-                        <img src="yemen1.png" alt="The stick man in Isfahan">
+                        <img src="yemen1.png" alt="Human drawing in Sana'a">
                     </div>
                 </div>
             </div>
-            
+
             <div class="country-card">
-                <h3 class="country-title">🇮🇷 Shiraz</h3>
+                <h3 class="country-title">Moscow, Russia</h3>
                 <div class="country-content">
                     <div class="image-box">
-                        <img src="russia1.png" alt="The stick man in Shiraz">
+                        <img src="russia1.png" alt="Human drawing in Moscow">
                     </div>
                     <div class="country-info">
                         <ul class="info-list">
-                            <li>Street artist near Eram Garden in Shiraz</li>
-                            <li>The stick man sketched on a quiet side street</li>
-                            <li>Paid $80 USD to spread the word</li>
-                            <li>The city of poets now has a new messenger</li>
+                            <li>Street artist near Arbat Street</li>
+                            <li>Sketched a human figure in a quiet underpass</li>
+                            <li>Paid $80 USD to prove humans still draw</li>
+                            <li>Art doesn't need borders or permissions</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            
+
             <div class="country-card">
-                <h3 class="country-title">🇮🇷 Tabriz</h3>
+                <h3 class="country-title">Sao Paulo, Brazil</h3>
                 <div class="country-content">
                     <div class="country-info">
                         <ul class="info-list">
-                            <li>Artist in the Tabriz Grand Bazaar district</li>
-                            <li>The stick man spray-painted on a market wall</li>
-                            <li>Paid $75 USD to keep the message alive</li>
-                            <li>The stick man stands in one of the oldest bazaars in the world</li>
+                            <li>Artist in the Vila Madalena neighborhood</li>
+                            <li>Spray-painted a human figure on a market wall</li>
+                            <li>Paid $75 USD to add to the movement</li>
+                            <li>The city of street art gets one more human touch</li>
                         </ul>
                     </div>
                     <div class="image-box">
-                        <img src="brazil1.png" alt="The stick man in Tabriz">
+                        <img src="brazil1.png" alt="Human drawing in Sao Paulo">
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
     <div class="gallery-section">
-        <h2 class="section-title">The Iran Meme Gallery ✨</h2>
-        <p style="font-family: 'Caveat', cursive; font-size: 2rem; text-align: center; margin-bottom: 60px; color: #FF6B6B;">
-            Help us spread the stick man across Iran -- the world is watching!
+        <h2 class="section-title">The Gallery</h2>
+        <p style="font-size: 1.6rem; text-align: center; margin-bottom: 60px; color: #6B5847; font-weight: 500;">
+            Every drawing here was made by a real human. No AI. No filters. Just people.
         </p>
     </div>
-    
+
     <div class="footer-section">
-        <h3 class="footer-title">The Iran Meme Is Just The Beginning 💙</h3>
+        <h3 class="footer-title">This Is Just The Beginning</h3>
         <p class="footer-text">
-            This project isn't about one drawing. It's about people. It's about proving that the world sees Iran and its people.
-            Every person we paid, every stick man that was drawn, every chalk mark on a wall --
-            they all represent something powerful: global solidarity and the refusal to look away.
+            Made By Humans isn't just a project. It's a movement. Every person we paid, every drawing that was made, every mark on a wall —
+            they all represent something powerful: proof that in the age of AI, humans still create.
         </p>
-        <p class="footer-text" style="margin-top: 30px; font-family: 'Caveat', cursive; font-size: 1.8rem; color: #FFD93D;">
-            Help us spread it further. Draw a stick man. Share it. The world sees Iran. ✨
+        <p class="footer-text" style="margin-top: 30px; font-size: 1.6rem; color: #d4a574; font-weight: 600;">
+            Made By Humans. Not by machines.
         </p>
     </div>
 
@@ -749,20 +709,19 @@
         function openFeesModal() {
             document.getElementById('feesModal').classList.add('active');
         }
-        
+
         function closeFeesModal() {
             document.getElementById('feesModal').classList.remove('active');
         }
-        
+
         function openWhitepaperModal() {
             document.getElementById('whitepaperModal').classList.add('active');
         }
-        
+
         function closeWhitepaperModal() {
             document.getElementById('whitepaperModal').classList.remove('active');
         }
-        
-        // Close modal when clicking outside
+
         window.onclick = function(event) {
             const feesModal = document.getElementById('feesModal');
             const whitepaperModal = document.getElementById('whitepaperModal');
